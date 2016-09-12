@@ -71,16 +71,43 @@ class Application_Model_AccountOptions extends Zend_Db_Table_Abstract
 	{
 		$retVal = FALSE;
 
+        $applicationConfigs = new Zend_Application(
+            APPLICATION_ENV,
+            APPLICATION_PATH . "/configs/application.ini"
+        );
+
         try {
             $sqlDir = APPLICATION_PATH . '/MySQL/';
             $sqlFiles = scandir($sqlDir,1);
             if (count($sqlFiles) > 0) {
                 $mostRecent = $sqlFiles[0];
+                $sql = file_get_contents($sqlDir.$mostRecent);
+
+                /*
+                // Does not work, sql file too large
                 $db = $this->getDefaultAdapter();
                 $db->beginTransaction();
-                $sql = file_get_contents($sqlDir.$mostRecent);
                 $db->query($sql);
                 $db->commit();
+                */
+
+                // Also does not work, only inserts admin table
+                $mysqliObject = new mysqli(
+                    $applicationConfigs["resources"]["db"]["paramse"]["host"],
+                    $applicationConfigs["resources"]["db"]["paramse"]["username"],
+                    $applicationConfigs["resources"]["db"]["paramse"]["password"],
+                    $applicationConfigs["resources"]["db"]["paramse"]["dbname"],
+                    $applicationConfigs["resources"]["db"]["paramse"]["port"]
+                );
+
+                $mysqliObject->multi_query($sql);
+
+                if ($mysqliObject->errno !== 0) {
+                    throw new Exception("Error creating tables in myagi");
+                }
+
+                $mysqliObject->close();
+
                 $retVal = TRUE;
             }
 		} catch(Exception $e) {
@@ -88,7 +115,7 @@ class Application_Model_AccountOptions extends Zend_Db_Table_Abstract
         	$phpSetting = $bootstrap->getOption('phpSettings');
         	$displayErrors = $phpSetting['display_errors'];
         	if ($displayErrors) {
-        		echo $e->getMessage();
+        		//echo $e->getMessage();
             }
         	$retVal = FALSE;
         }
