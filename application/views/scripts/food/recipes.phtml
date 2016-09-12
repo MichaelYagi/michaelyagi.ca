@@ -1,0 +1,90 @@
+<?php
+
+//Click link to view recipes
+//Editable if user has rights
+
+$objpage = $this->objpager;
+$paginator = $this->paginator;
+
+echo "<h3 style='display:inline;'>Welcome ".$this->user."</h3>";
+echo "<h4>View Recipes</h4>";
+
+if (sizeof($objpage->getCurrentItems()) > 0) {
+
+echo $paginator;
+echo "<br><br>"; 
+echo "<div id='WrapperBox'>";
+?>
+
+	<table style="margin-top:-10px;" cellspacing="0" cellpadding="0">
+	<br><br>
+	<thead><tr>
+		<th>Title</th>
+		<th>User</th>
+		<th>&nbsp;</th>
+	</tr></thead>
+	<tbody>
+	
+		<?php 
+		foreach($objpage->getCurrentItems() as $value) {
+			
+			if (is_array($value)) {
+			
+				if ((array_key_exists("user",$value) && $this->user == $value["user"]) || (array_key_exists("published",$value) && $value["published"])) {
+			
+					echo "<tr>";
+					$title = $value['title'];
+					if (strlen($value['title']) >= 60) {
+						$title = substr($value['title'], 0, 60)."...";
+					}
+			
+					echo "<td><a href='".$this->baseUrl('food/recipe/id/'.$value['id'])."' title='View Recipe'>".$title."</a>";
+					if (!$value['published']) {
+						echo " - DRAFT";
+					}
+					echo "</td>";
+			
+					echo "<td><a href='".$this->baseUrl('food/recipes/user/'.$value['user'])."' title='View User's Recipes'>".$value['user']."</a></td>";
+				
+					echo "<td>";
+				
+					if ($this->user == $value['user']) {
+						echo "<a href='".$this->baseUrl('food/edit/id/'.$value['id'])."' title='Edit Recipe'><span class='icon small darkgray' data-icon='7'></span></a>";
+						echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+						echo "<a href='".$this->baseUrl('food/delete/id/'.$value['id'])."' title='Delete Recipe'><span class='icon small darkgray' data-icon='x'></span></a>";
+					}
+
+					echo "</td>";
+			
+					echo "</tr>";
+			
+				}
+			
+			}
+		}
+		?>
+	</tbody>
+	</table>
+	<?php
+	if (isset($_GET['page'])&&isset($_GET['count']))
+	{
+	?>
+	<input type="hidden" name="page" value="<?php echo $_GET['page']; ?>">
+	<input type="hidden" name="count" value="<?php echo $_GET['count']; ?>">
+	<?php
+	}
+	$param = Zend_Controller_Front::getInstance()->getRequest()->getParam('view');
+	if (isset($param))
+	{
+	?>
+	<input type="hidden" name="view" value="<?php echo $param; ?>">
+	<?php
+	}
+	?>
+</div>
+<br>
+<?php 
+echo $paginator;
+ 
+}
+?>

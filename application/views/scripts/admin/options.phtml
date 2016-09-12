@@ -1,0 +1,19 @@
+<?php
+echo "<h3 style='display:inline;'>Welcome ".$this->user."</h3>&nbsp;&nbsp;<a style='float:right;' class='button' href='".$this->baseUrl('admin/logout')."'>Sign out</a>";
+echo "<p style='margin-top:0px; margin-bottom:25px;'>".$this->expiretime."</p>";
+echo "<h4>Site Options</h4>";
+if($this->msg==1)
+{
+	echo "<div class='notice success'><span class='icon medium' data-icon='C'></span>Successful Submission <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+else if($this->err==1)
+{
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Error in submission <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+
+echo "<div id='CommentForm' class='CommentForm_new'>";
+echo $this->form;
+echo "</div>";
+	
+echo "<h4>PHP info</h4>";
+phpinfo();

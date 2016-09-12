@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8'?> 
+<tmx version="1.4"> 
+	<header creationtoolversion="0.0" datatype="plaintext" segtype="sentence" adminlang="en_ca" srclang="*all*" o-tmf="abc" creationtool="michaelyagi"/>
+
+	<body> 
+    	<tu tuid="lang"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>en</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>jp</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="lang_switch"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>日本語</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>English</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="jrc_page_title_1"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Canada Aviation and Space Museum</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>カナダ国立宇宙航空博物館</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="jrc_page_title_2"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Sunday, June 5, 2011</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>２０１１年６月５日</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_1"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Bach - Prelude</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>バッハ　平均律　第１巻　１２番　BWV８５７ プレリュード</seg> 
+            </tuv>          
+        </tu> 
+        <tu tuid="tracktitle_2"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Bach - Fugue in F minor, Bk. I, No 12, BWV 857</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>バッハ　平均律　第１巻　１２番　BWV８５７　フーガ</seg> 
+            </tuv>          
+        </tu> 
+        <tu tuid="tracktitle_3"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Leclair - Sonata No. 5 - I. Allegro</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ルクレール　２台のバイオリンのためのソナタ　第５番　1楽章</seg> 
+            </tuv>          
+        </tu> 
+        <tu tuid="tracktitle_4"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Leclair - Sonata No. 5 - II. Andante</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ルクレール　２台のバイオリンのためのソナタ　第５番　２楽章</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_5"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Leclair - Sonata No. 5 - III. Presto</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ルクレール　２台のバイオリンのためのソナタ　第５番　３楽章</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_6"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Debussy - Petite Suite - I. En bateau</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ピアノ連弾　ドビュッシー　小組曲　I. 小舟にて</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_7"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Debussy - Petite Suite - II. Cortege</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ピアノ連弾　ドビュッシー　小組曲　II. 行列</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_8"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Debussy - Petite Suite - III. Menuet</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ピアノ連弾　ドビュッシー　小組曲　III.　メヌエット</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_9"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Debussy - Petite Suite - IV. Ballet</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ピアノ連弾　ドビュッシー　小組曲　IV. バレエ</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_10"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Kreisler - Liebesleid</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ピアノ＆バイオリン　クライスラー　愛の悲しみ</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_11"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Piazzolla - Oblivion</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ピアノ連弾　ピアソラ　忘却</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_12"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Piazzolla - Libertango</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ピアノ連弾　ピアソラ　リベルタンゴ</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_13"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Shostakovich - Five Pieces for Two Violins - I. Prelude</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ショスタコーヴィチ　2台バイオリン＆ピアノ　I. プレリュード</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_14"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Shostakovich - Five Pieces for Two Violins - II. Gavotte</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ショスタコーヴィチ　2台バイオリン＆ピアノ　II. ガヴォット</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_15"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Shostakovich - Five Pieces for Two Violins - III. Elegy</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ショスタコーヴィチ　2台バイオリン＆ピアノ　III. エレジー</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_16"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Shostakovich - Five Pieces for Two Violins - IV. Waltz</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ショスタコーヴィチ　2台バイオリン＆ピアノ　IV.　ワルツ</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_17"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Shostakovich - Five Pieces for Two Violins - V. Polka</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ショスタコーヴィチ　2台バイオリン＆ピアノ　V. ポルカ</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_18"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Liszt - Mephisto Waltz No. 1</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>リスト　メフィストワルツ　第一番</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_19"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Teiichi Okano - Furusato (arr. Atsufumi Morita)</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>ふるさと　岡野貞一 (編曲：森田敦文)</seg> 
+            </tuv>          
+        </tu>
+        <tu tuid="tracktitle_20"> 
+        	<tuv xml:lang="en_CA"> 
+            	<seg>Kosaku Yamada - Akatombo (arr. Atsufumi Morita)</seg> 
+            </tuv> 
+        	<tuv xml:lang="ja"> 
+            	<seg>赤とんぼ　山田　耕作　(編曲：森田敦文)</seg> 
+            </tuv>          
+        </tu>
+	</body> 
+</tmx>

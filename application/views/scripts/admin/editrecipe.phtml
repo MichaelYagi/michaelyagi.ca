@@ -1,0 +1,90 @@
+<script type="text/javascript" language="javascript">
+	
+	function deletechecked(message)
+	{
+		var answer = confirm("Delete recipe '" + message + "'?")
+		if (answer) {
+        	document.messages.submit();
+    	}
+    
+    	return false; 
+	}
+
+</script>
+
+<?php
+$objpage = $this->objpager;
+$paginator = $this->paginator;
+
+echo "<h3 style='display:inline;'>Welcome ".$this->user."</h3>&nbsp;&nbsp;<a style='float:right;' class='button' href='".$this->baseUrl('admin/logout')."'>Sign out</a>";
+echo "<p style='margin-top:0px; margin-bottom:25px;'>".$this->expiretime."</p>";
+echo "<h4>Edit Recipes</h4>";
+
+if ($this->err==1) {
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Choose an action <a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if ($this->err==2) {
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>An unknown error occurred <a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if ($this->err==3) {
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>No posts chosen <a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if($this->msg==1) {
+	echo "<div class='notice success'><span class='icon medium' data-icon='C'></span>Successful Edit <a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if($this->msg==2) {
+	echo "<div class='notice success'><span class='icon medium' data-icon='C'>C</span>Nothing has changed <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+
+echo $paginator;
+echo "<br><br>"; 
+echo "<div id='WrapperBox'>";
+?>
+	<form name="active" action="/admin/editrecipe" method="post">
+	<select name="action" class="fancy">
+		<option value="choose">-- Choose Action --</option>
+		<option value="2">Draft</option>
+		<option value="3">Publish</option>
+		<option value="4">Delete</option>
+	</select>
+	<input style="padding: 5px 6px 5px 2px;" type="submit" name="submit" value="Go" />
+
+	<table style="margin-top:-10px;" cellspacing="0" cellpadding="0">
+	<br><br>
+	<thead><tr>
+		<th>Action</th>
+		<th>Title</th>
+		<th>User</th>
+	</tr></thead>
+	<tbody>
+	
+		<?php 
+		foreach($objpage->getCurrentItems() as $value) {
+
+			if (isset($value['id'])) {
+				echo "<tr>";
+				echo "<td><input type='checkbox' name='postaction[]' value='".$value['id']."' /></td>";
+				$title = $value['title'];
+				if (strlen($value['title']) >= 60) {
+					$title = substr($value['title'], 0, 60)."...";
+				}
+			
+				echo "<td><a href='".$this->baseUrl('food/recipe/id/'.$value['id'])."'>".$title."</a>";
+				if (!$value['published']) {
+					echo " - DRAFT";
+				}
+				echo "</td>";
+				echo "<td>".$value['user']."</td>";
+				echo "</tr>";
+			}
+		}
+		?>
+	</tbody>
+	</table>
+	<?php
+	if (isset($_GET['page'])&&isset($_GET['count'])) {
+	?>
+		<input type="hidden" name="page" value="<?php echo $_GET['page']; ?>">
+		<input type="hidden" name="count" value="<?php echo $_GET['count']; ?>">
+	<?php
+	}
+	?>
+	</form>
+</div>
+<br><?php echo $paginator; ?>

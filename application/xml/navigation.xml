@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <mty>
+		<about>
+        	<label>About</label>
+        	<module>default</module>
+			<controller>about</controller>
+			<action>index</action>
+		</about>
+		<!--
+		<projects>
+        	<label>Projects</label>
+        	<module>default</module>
+			<controller>projects</controller>
+			<action>index</action>
+		</projects>
+		-->
+		
+		<music>
+        	<label>Music</label>
+        	<module>default</module>
+			<controller>music</controller>
+			<action>jrc</action>
+			<pages>
+				<jrc>
+					<label>Japan Relief Concert</label>
+        			<module>default</module>
+					<controller>music</controller>
+					<action>jrc</action>
+				</jrc>
+				<cc2012>
+					<label>Carleton 2012</label>
+        			<module>default</module>
+					<controller>music</controller>
+					<action>cc2012</action>
+				</cc2012>
+			</pages>
+		</music>
+		
+		<blog>
+        	<label>News</label>
+        	<module>default</module>
+			<controller>news</controller>
+			<action>index</action>
+		</blog>
+		
+    </mty>
+</config>

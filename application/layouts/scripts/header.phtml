@@ -1,0 +1,97 @@
+<?php
+
+echo '<ul class="menu">';
+
+$site = new Application_Model_SiteOptions;
+$sitestatus = $site->getSiteStatus();
+
+$config = new Zend_Config_Xml(APPLICATION_PATH.'/xml/navigation.xml', 'mty');
+$container = new Zend_Navigation($config);
+
+foreach ($container as $page)  {
+	$isActive = $page->isActive()?"<li class='current'>":"<li>";
+
+	echo $isActive;
+	
+	echo "<a href='".$page->getHref()."'><span class='icon' data-icon='";
+	
+	switch($page->controller) {
+		case "news":
+			echo "7";
+			break;
+		case "about":
+			echo "i";
+			break;
+		case "projects":
+			echo "Z";
+			break;
+		case "music":
+			echo "3";
+			break;
+		default:
+			echo "Page not found";
+			break;
+	}
+	
+	echo "'></span>".$page->label."</a>";
+	
+	// Iterate recursively using RecursiveIteratorIterator
+	$it = new RecursiveIteratorIterator($page, RecursiveIteratorIterator::SELF_FIRST);
+ 
+ 	if($it->valid()) {
+ 		echo "<ul>";
+ 		
+		foreach ($it as $page) {
+    		echo "<li><a href='".$page->getHref()."'><span class='icon' data-icon='Y'></span>".$page->label."</a></li>";
+		}
+		
+		echo "</ul>";
+	}
+	echo "</li>";
+}
+
+//Food menu items
+if (Zend_Controller_Front::getInstance()->getRequest()->getControllerName() == "food") {
+	echo "<li class='current'>";
+} else {
+	echo "<li>";
+}
+echo "<a href='".$this->baseUrl('/food')."'><span class='icon' data-icon='M'></span>Food</a>";
+echo "<ul>";
+	//If the user is logged in, show log out link
+	if (isset($_SESSION["user_auth"]["user"])) {
+		$user = $_SESSION["user_auth"]["user"];
+		echo "<li><a href='".$this->baseUrl('food/recipes')."'><span class='icon' data-icon='Y'></span>Browse Recipes</a></li>";
+		echo "<li><a href='".$this->baseUrl('food/recipes/user/'.$user)."'><span class='icon' data-icon='Y'></span>My Recipes</a></li>";
+		echo "<li><a href='".$this->baseUrl('food/add')."'><span class='icon' data-icon='Y'></span>Add Recipe</a></li>";
+		echo "<li><a href='".$this->baseUrl('food/account')."'><span class='icon' data-icon='Y'></span>Account Options</a></li>";
+		echo "<li><a href='http://192.168.1.102:9245/api'><span class='icon' data-icon='Y'></span>API</a></li>";
+		echo "<li><a href='".$this->baseUrl('food/logout')."'><span class='icon' data-icon='Y'></span>Log Out</a></li>";
+	} else {
+		echo "<li><a href='".$this->baseUrl('food/recipes')."'><span class='icon' data-icon='Y'></span>Browse Recipes</a></li>";
+		echo "<li><a href='http://192.168.1.102:9245/api'><span class='icon' data-icon='Y'></span>API</a></li>";
+		echo "<li><a href='".$this->baseUrl('food/login')."'><span class='icon' data-icon='Y'></span>Log In</li>";
+		echo "<li><a href='".$this->baseUrl('food/register')."'><span class='icon' data-icon='Y'></span>Register</li>";
+	}
+echo "</ul>";
+echo "</li>";		
+
+//Admin menu items
+if (Zend_Auth::getInstance()->hasIdentity()) {
+	if (Zend_Controller_Front::getInstance()->getRequest()->getControllerName() == "admin") {
+		echo "<li class='current'>";
+	} else {
+		echo "<li>";
+	}
+	
+	echo "<a href='".$this->baseUrl('/admin')."'><span class='icon' data-icon='a'></span>Admin</a></li>";
+}
+
+if(!$sitestatus) {
+	$sitetitlecolor = "#FF3300";
+} else {
+	$sitetitlecolor = "#777";
+}
+?>
+<li class='banner'><a href='<?php echo $this->baseUrl('/index'); ?>' class='bannerlink' style='color:<?php echo $sitetitlecolor; ?>;'>Michael Yagi</a></li>
+</ul>

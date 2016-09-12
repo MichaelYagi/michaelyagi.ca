@@ -1,0 +1,45 @@
+<?php
+$arrComment = $this->comment;
+echo "<h3 style='display:inline;'>Welcome ".$this->user."</h3>&nbsp;&nbsp;<a style='float:right;' class='button' href='".$this->baseUrl('admin/logout')."'>Sign out</a>";
+echo "<p style='margin-top:0px; margin-bottom:25px;'>".$this->expiretime."</p>";
+echo "<h4>Edit Comment</h4>";
+if($this->msg==1)
+{
+	echo "<div class='notice success'><span class='icon medium' data-icon='C'></span>Successful Edit <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+else if($this->err==1)
+{
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Error in editing <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+	
+
+if(isset($arrComment))
+{
+	echo "<div id='CommentForm' class='CommentForm_new'>";
+	?>
+	<div>Author:</div>
+	<p><?php echo $arrComment['name']; ?></p><br>
+	
+	<div>Date:</div>
+	<p><?php echo $arrComment['created']; ?></p><br>
+	
+	<div>Comment:</div>
+	<p><?php echo $arrComment['comment']; ?></p><br>
+	
+	
+	
+	<form name="editcommentform" action="/admin/editsinglecomment/id/<?php echo $arrComment['id']; ?>" method="post">
+		<label for="isactive">Active:</label>
+		<br>
+		<input type="radio" name="isactive" value="1" <?php echo $arrComment['isActive']?'checked':''; ?>> Yes<br>
+		<input type="radio" name="isactive" value="0" <?php echo $arrComment['isActive']?'':'checked'; ?>> No<br><br>
+		
+		<input type="submit" name="submit" value="Save" />
+	</form>
+	<?php
+	echo "</div>";
+}
+else
+{
+	echo "Page not found";
+}

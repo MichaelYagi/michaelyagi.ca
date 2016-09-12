@@ -1,0 +1,204 @@
+<?php
+
+echo '<div id="recipe">';
+
+$recipe = $this->recipe;
+
+if($this->msg==1) {
+	echo "<div class='notice success'><span class='icon medium' data-icon='C'></span>Successful Edit <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+
+if ($recipe['retval'] == 1) {
+
+	/******************/
+	// Title & Author  /
+	/******************/
+	echo "<div id='title'>";
+	if ($this->user == $recipe["user"]) {
+		echo "<a href='".$this->baseUrl('food/edit/id/'.$recipe['id'])."' title='Edit Recipe'><span style='padding-top:5px;' class='icon small darkgray' data-icon='7'></span></a>&nbsp;";
+		echo "<a href='".$this->baseUrl('food/delete/id/'.$recipe['id'])."' title='Delete Recipe'><span style='padding-top:5px;' class='icon small darkgray' data-icon='x'></span></a>&nbsp;";
+	}
+	echo $recipe["title"]."</div>";
+
+	echo "<div id='author'>by ".$recipe["user"]."</div>";
+	
+	if (!$recipe["published"]) {
+		echo "<div id='author' style='color:blue'>Not Published</div>";
+	}
+
+	/******************/
+	// Images          /
+	/******************/
+	if (sizeof($recipe["images_info"]) > 0) {
+		echo "<br><br>";
+	
+		$max_height = 250;
+	
+		if (sizeof($recipe["images_info"]) == 1) {
+			echo '<div class="gallery" style="text-align:center;">';
+			$imageinfo = $recipe["images_info"];
+			$imageurl = $this->serverUrl().$this->baseUrl('media/recipeimages/'.$recipe['id'].'/'.$imageinfo[0]['id']);
+			if (!empty($imageinfo['extension'])) {
+				$imageurl .= $imageurl.".".$imageinfo['extension'];
+			}
+			$image_size = getimagesize($imageurl);
+			$image_height = $image_size[1];
+			$image_width = $image_size[0];
+			$ratio = 1;
+		
+			if ($image_height > $max_height) {
+				$ratio = $image_height/$max_height;
+			}
+		
+			$image_height = $max_height;
+			$image_width = $image_width/$ratio;
+		
+			echo "<a href='".$imageurl."'><img src='".$imageurl."' width='".$image_width."' height='".$image_height."' /></a>";
+			echo '</div>';
+		} else {
+			echo '<div class="gallery" style="text-align:center;">';
+			foreach ($recipe["images_info"] as $imageinfo) {
+				$imageurl = $this->serverUrl().$this->baseUrl('media/recipeimages/'.$recipe['id'].'/'.$imageinfo['id']);
+				if (!empty($imageinfo['extension'])) {
+					$imageurl .= ".".$imageinfo['extension'];
+				}
+				$image_size = getimagesize($imageurl);
+				$image_height = $image_size[1];
+				$image_width = $image_size[0];
+				$ratio = 1;
+			
+				if ($image_height > $max_height) {
+					$ratio = $image_height/$max_height;
+				}
+			
+				$image_height = $max_height;
+				$image_width = $image_width/$ratio;
+			
+				echo "<a href='".$imageurl."'><img src='".$imageurl."' width='".$image_width."' height='".$image_height."' /></a>";
+			}
+			echo '</div>';
+		}
+
+	
+	}
+
+	echo "<hr>";
+
+	/******************/
+	// Ingredients     /
+	/******************/
+	if (sizeof($recipe["ingredients"]) > 0) {
+
+		echo "<div id='ingredients'><ul>";
+
+
+		if (isset($recipe["ingredients"]["amount"]) || isset($recipe["ingredients"]["unit"]) || isset($recipe["ingredients"]["ingredient"])) {
+			echo "<li>";
+		
+			if (strlen($recipe["ingredients"]["amount"]) > 0) {
+				echo $recipe["ingredients"]["amount"]." ";
+			}
+	
+			if (strlen($recipe["ingredients"]["unit"]) > 0) {
+				echo $recipe["ingredients"]["unit"]." ";
+			}
+	
+			if (strlen($recipe["ingredients"]["ingredient"]) > 0) {
+				echo $recipe["ingredients"]["ingredient"]." ";
+			}
+	
+			echo "</li>";
+		} else {
+			foreach ($recipe["ingredients"] as $ingredient) {
+	
+				echo "<li>";
+		
+				if (strlen($ingredient["amount"]) > 0) {
+					echo $ingredient["amount"]." ";
+				}
+		
+				if (strlen($ingredient["unit"]) > 0) {
+					echo $ingredient["unit"]." ";
+				}
+		
+				if (strlen($ingredient["ingredient"]) > 0) {
+					echo $ingredient["ingredient"]." ";
+				}
+		
+				echo "</li>";
+	
+			}
+		}
+	
+		echo "</ul></div>";
+	
+	}
+
+	echo '<div style="clear:both"></div>';
+
+	/******************/
+	// Steps           /
+	/******************/
+	if (sizeof($recipe["steps"]) > 0) {
+		echo "<div id='steps'>";
+	
+		if (isset($recipe["steps"]["description"])) {
+			echo "<p>".$recipe["steps"]["description"]."<p>";
+		} else {
+			foreach ($recipe["steps"] as $step) {
+				echo "<p>".$step["description"]."<p>";
+			}
+		}
+	
+		echo "</div>";
+		echo "<br>";
+	}
+
+
+
+	/******************/
+	// Measurements    /
+	/******************/
+	if (strlen($recipe["serves"]) > 0 || strlen($recipe["prep_time"]) > 0 || strlen($recipe["cook_time"]) > 0) {
+		echo "<div id='measures'>";
+		if (strlen($recipe["serves"]) > 0) {
+			echo "Serves: ".$recipe["serves"];
+			echo "<br>";
+		}
+		if (strlen($recipe["prep_time"]) > 0) {
+			echo "Prep time: ".date ('H:i',strtotime($recipe["prep_time"]));
+			echo "<br>";
+		}
+		if (strlen($recipe["cook_time"]) > 0) {
+			echo "Cooking time: ".date ('H:i',strtotime($recipe["cook_time"]));
+			echo "<br>";
+		}
+		echo "</div>";
+		echo "<br>";
+	}
+
+
+
+	/******************/
+	// Tags            /
+	/******************/
+	$tag_string = '';
+	if (sizeof($recipe["tags"]) == 1) {
+		$tag_string .= "<a href='".$this->baseUrl('food/recipes/tag/'.$recipe["tags"]["keyword"])."'>".$recipe["tags"]["keyword"]."</a>, ";
+	} else {
+		foreach ($recipe["tags"] as $tag) {
+			$tag_string .= "<a href='".$this->baseUrl('food/recipes/tag/'.$tag["keyword"])."'>".$tag["keyword"]."</a>, ";
+		}
+	}
+	$tag_string = rtrim($tag_string,", ");
+	if (trim($tag_string)) {
+		echo "<div id='tags'>";
+		echo "Tags: ".$tag_string;
+		echo "</div>";
+	}
+
+} else {
+	echo "Nothing to see here...";
+}
+?>
+</div>

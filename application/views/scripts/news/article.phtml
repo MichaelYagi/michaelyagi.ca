@@ -1,0 +1,81 @@
+<script type="text/javascript">
+
+$("#captcha img").addClass("captcha-image");
+
+</script>
+
+<?php
+if ($this->err==2)
+{
+	echo "<h3>Page does not exist</h3>";
+}
+else
+{
+	$value = $this->arrPost;
+	$arrComments = $this->arrComments;
+	
+	if(empty($value))
+	{
+		echo "Page does not exist";
+	}
+	else
+	{
+		$datetime = strtotime($value["created"]);
+		$date = date("M j, Y", $datetime);
+		$time = date("g:i a", $datetime);
+	
+		echo "<p class='metadata'>".$date." at ".$time;
+	
+		if ($value['commentcount'] == 1)
+		{
+			echo "<br>".$value['commentcount']." Comment</p>";
+		}
+		else
+		{
+			echo "<br>".$value['commentcount']." Comments</p>";
+		}
+
+		echo "<h3><a href='".$this->baseUrl('/'.$this->controller.'/article/id/'.$value["id"])."'>".$value["title"]."</a></h3>";
+	
+		echo html_entity_decode($value["post"]);
+	
+		echo '<hr class="alt1" />';
+		
+		echo "<h3>Comments</h3>";
+		
+		echo "<ul class='CommentList'>";
+	
+		foreach($arrComments as $comment)
+		{
+			$commentdatetime = strtotime($comment["created"]);
+			$commentdate = date("M j, Y", $commentdatetime);
+			$commenttime = date("g:i a", $commentdatetime);
+	
+			echo "<li class='CommentListItem'>";
+			echo "<p class='CommentHeader'>by ".$comment["name"]." on ".$commentdate." at ".$commenttime."</p>";
+			echo "<div class='CommentText'>".nl2br($comment["comment"])."</div></li>";
+		}
+	
+		echo "</ul>";
+	
+		?>
+		<div id='CommentForm' class='CommentForm_new'>
+		<h3>Post Comment</h3>
+		html disabled
+			<?php
+			if($this->msg==1)
+			{
+				echo "<script type='text/javascript'>document.getElementById('CommentForm').scrollIntoView(true);</script>";
+				echo "<div class='notice success'><span class='icon medium' data-icon='C'></span>Successful Submission <a href='#close' class='icon close' data-icon='x'></a></div>";
+			}
+			else if($this->err==1)
+			{
+				echo "<script type='text/javascript'>document.getElementById('CommentForm').scrollIntoView(true);</script>";
+				echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Invalid Inputs <a href='#close' class='icon close' data-icon='x'></a></div>";
+			}
+			echo $this->commentform; 
+			?>
+		</div>
+	<?php
+	}
+}

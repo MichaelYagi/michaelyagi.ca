@@ -1,0 +1,59 @@
+<?php
+$user = $this->user;
+$recipe = $this->recipe;
+
+echo "<h4>Edit Recipe</h4>";
+if ($this->err == 1) {
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Error in form<a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if ($this->err == 2) {
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Error in submission <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+
+echo "<div id='CommentForm' class='CommentForm_new'>";
+echo $this->recipeform;
+echo "</div>";
+
+
+echo '<script type="text/javascript">';
+
+//Dynamic tag creation using tag-it
+if (sizeof($recipe["tags"]) > 0) {
+	if (sizeof($recipe["tags"]) == 1) {
+		echo '$("#recipeTags").append("<li>'.$recipe["tags"]["keyword"].'</li>");';
+	} else {
+		foreach($recipe["tags"] as $tag) {
+			echo '$("#recipeTags").append("<li>'.$tag["keyword"].'</li>");';
+		}
+	}
+}
+
+//Add to hidden field Images 
+if (sizeof($recipe["images_info"]) > 0) {
+	echo "$('div.gallery').empty();";
+	echo "$('div.gallery_id').empty();";
+	if (sizeof($recipe["images_info"]) == 1) {
+		$imageinfo = $recipe["images_info"];
+		$imageurl = $this->serverUrl().$this->baseUrl('media/recipeimages/'.$recipe['id'].'/'.$imageinfo[0]['id']);
+		if (!empty($imageinfo['extension'])) {
+			$imageurl .= ".".$imageinfo['extension'];
+		}
+	
+		$path_parts = pathinfo($imageurl);
+		
+		echo "$('div.gallery_id').append('<input type=\"hidden\" name=\"image_ids[]\" id=\"".$path_parts["filename"]."\" value=\"".$path_parts["filename"]."\">');";
+		echo "$('div.gallery').append('<span class=\"gallery_content\" id=\"close_".$path_parts["filename"]."\"><img src =\"".$imageurl."\" width=\"100\" height=\"100\" /><img onclick=\"return remove_image(\'".$path_parts["filename"]."\',\'0\');\" class=\"close_button\" src=\"".$this->baseUrl('css/img/close_button.png')."\" /></span>');";
+	} else {
+		foreach($recipe["images_info"] as $key => $image_info) {
+			$imageurl = $this->serverUrl().$this->baseUrl('media/recipeimages/'.$recipe['id'].'/'.$image_info['id']);
+			if (!empty($image_info['extension'])) {
+				$imageurl .= ".".$image_info['extension'];
+			}
+		
+			$path_parts = pathinfo($imageurl);
+			echo "$('div.gallery_id').append('<input type=\"hidden\" name=\"image_ids[]\" id=\"".$path_parts["filename"]."\" value=\"".$path_parts["filename"]."\">');";
+			echo "$('div.gallery').append('<span class=\"gallery_content\" id=\"close_".$path_parts["filename"]."\"><img src =\"".$imageurl."\" width=\"100\" height=\"100\" /><img onclick=\"return remove_image(\'".$path_parts["filename"]."\',\'".$key."\');\" class=\"close_button\" src=\"".$this->baseUrl('css/img/close_button.png')."\" /></span>');";
+		}
+	}
+}
+
+echo '</script>';

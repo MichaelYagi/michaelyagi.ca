@@ -1,0 +1,65 @@
+<?php
+echo "<h3 style='display:inline;'>Welcome ".$this->user."</h3>&nbsp;&nbsp;<a style='float:right;' class='button' href='".$this->baseUrl('admin/logout')."'>Sign out</a>";
+echo "<p style='margin-top:0px; margin-bottom:25px;'>".$this->expiretime."</p>";
+
+
+echo "<h4>Server Usages</h4>";
+
+$output = null;
+exec('top -b -n 1;',$output);
+
+$cpuArray = explode(":",$output[2]);
+
+echo "<div>";
+
+echo "<div style='float:left;'>";
+echo "<h5>CPU Usage</h5>";
+$cpuUsage = explode(",",$cpuArray[1]);
+
+foreach($cpuUsage as $value)
+{
+	if (strpos($value,'us') !== false) {
+    	echo $value." - Un-niced user processes<br>";
+    } else if (strpos($value,'sy') !== false) {
+    	echo $value." - System kernel processes<br>";
+	} else if (strpos($value,'ni') !== false) {
+    	echo $value." - Niced user processes<br>";
+    } else if (strpos($value,'id') !== false) {
+    	echo $value." - Idle (unused) processes<br>";
+	}
+}
+echo "</div>";
+
+
+$memArray = explode(":",$output[3]);
+echo "<div style='float:right;margin-right:100px;'>";
+echo "<h5>Physical Memory Usage (KBytes)</h5>";
+$memUsage = explode(",",$memArray[1]);
+
+foreach($memUsage as $value)
+{
+	echo $value."<br>";
+}
+echo "</div>";
+
+echo "</div>";
+
+echo "<br><br><br><br><br><br><br><br>";
+
+echo "<h4>View Logs</h4>";
+
+echo "<div id='CommentForm' class='CommentForm_new'>";
+echo $this->applogform;
+echo "</div>";
+echo "<br>";
+echo "<div id='CommentForm' class='CommentForm_new'>";
+echo $this->loginlogform;
+echo "</div>";
+echo "<br>";
+echo "<div id='CommentForm' class='CommentForm_new'>";
+echo $this->foodloginlogform;
+echo "</div>";
+echo "<br>";
+echo "<div id='CommentForm' class='CommentForm_new'>";
+echo $this->apiloginlogform;
+echo "</div>";

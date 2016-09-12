@@ -1,0 +1,99 @@
+<?php
+function getLink($page, $itemsPerPage, $label) {
+  	$q = http_build_query(array(
+      		'page' => $page,
+      		'count' => $itemsPerPage
+    	)
+  	);
+  	if ($label[0] == '{')
+  	{
+  		return "<a class='button small' href=\"?$q\"><span class='icon' data-icon='$label[0]'></span>$label[1]</a>";
+	}
+	else
+	{
+		return "<a class='button small' href=\"?$q\">$label[1] <span class='icon' data-icon='$label[0]'></span></a>";
+	}
+}
+
+$blogPosts = $this->arrBlog;
+//echo "<pre>"; print_r($blogPosts); echo "</pre>"; exit();
+$pager = new Zend_Paginator(new Zend_Paginator_Adapter_Array($blogPosts));
+
+// set page number from request
+$currentPage = isset($_GET['page']) ? (int) htmlentities($_GET['page']) : 1;
+$pager->setCurrentPageNumber($currentPage);
+
+// set number of items per page from request
+$itemsPerPage = isset($_GET['count']) ? (int) htmlentities($_GET['count']) : 10;
+$pager->setItemCountPerPage($itemsPerPage);
+
+// set number of pages in page range
+//$pager->setPageRange(5);
+
+// get page data
+$pages = $pager->getPages('Sliding');
+
+// create page links
+$pageLinks = array();
+$separator = ' ';
+
+$line = "";
+
+/*
+// build first page link
+$pageLinks[] = getLink($pages->first, $itemsPerPage, '&laquo;');
+*/
+
+// build previous page link
+if (!empty($pages->previous)) {
+	$pageLinks[] = getLink($pages->previous, $itemsPerPage, array('{','Previous'));
+	$line = "<hr class='alt1' />";
+}
+
+/*
+// build page number links
+foreach ($pages->pagesInRange as $x) {
+	if ($x == $pages->current) {
+    	$pageLinks[] = $x;
+    } else {
+      	$pageLinks[] = getLink($x, $itemsPerPage, $x);
+    }
+} 
+*/
+
+// build next page link
+if (!empty($pages->next)) {
+	$pageLinks[] = getLink($pages->next, $itemsPerPage, array('}','Next'));
+	$line = "<hr class='alt1' />";
+}  
+
+/*
+// build last page link
+$pageLinks[] = getLink($pages->last, $itemsPerPage, '&raquo;');        
+*/
+
+echo implode($pageLinks, $separator);
+echo $line;
+foreach ($pager->getCurrentItems() as $value)
+{
+	$datetime = strtotime($value["created"]);
+	$date = date("M j, Y", $datetime);
+	$time = date("g:i a", $datetime);
+
+	echo "<p class='metadata'>".$date." at ".$time;
+	
+	if ($value['commentcount'] == 1)
+	{
+		echo "<br>".$value['commentcount']." Comment</p>";
+	}
+	else
+	{
+		echo "<br>".$value['commentcount']." Comments</p>";
+	}
+
+	echo "<h3><a href='".$this->baseUrl('/'.$this->controller.'/article/id/'.$value["id"])."'>".$value["title"]."</a></h3>";
+	
+	echo html_entity_decode($value["post"]).$line."<br><br>";
+}
+
+echo implode($pageLinks, $separator);

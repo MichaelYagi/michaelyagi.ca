@@ -1,0 +1,96 @@
+<?php 
+echo $this->doctype();
+$title = "Music Website";
+$controller = Zend_Controller_Front::getInstance()->getRequest()->getControllerName();
+$action = Zend_Controller_Front::getInstance()->getRequest()->getActionName();
+?>
+
+<html lang="en">
+
+<head>
+<?php
+
+$this->headMeta()->appendHttpEquiv('Content-Type','text/html; charset=UTF-8');
+$this->headMeta()->appendHttpEquiv('Content-Language','any');
+//if do not allow robots for this controller
+//if($controller=="account")
+//{
+	$this->headMeta()->appendName('robots','nofollow');
+//}
+echo $this->headMeta();
+
+$this->headTitle()->prepend($title);
+echo $this->headTitle();
+
+$this->headLink()->appendStylesheet('/css/style.css');
+$this->headLink()->appendStylesheet('/css/bootstrap.css');
+echo $this->headLink()->appendStylesheet('/css/bootstrap-responsive.css'); 
+
+echo $this->headScript()->appendFile('/js/jquery-1.7.1.js');
+?>
+  
+</head>
+	
+<body>
+<a id="top-of-page"></a>
+
+<?php
+/*
+<!-- Banner -->
+<div id="header">
+<?php echo $this->render('banner.phtml'); ?>
+</div>
+<!-- /Banner -->
+*/
+?>
+	
+<div id="wrap" class="clearfix">
+		
+<!-- Menu Horizontal -->
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            	<span class="icon-bar"></span>
+            	<span class="icon-bar"></span>
+            	<span class="icon-bar"></span>
+          	</a>
+          	<a class="brand" href="#"><?php echo $title; ?></a>
+          	<div class="nav-collapse">
+    			<?php echo $this->render('nav.phtml'); ?>
+          	</div><!--/.nav-collapse -->
+        </div>
+	</div>
+</div>
+<!-- /Menu Horizontal -->
+
+<br><br><br>
+
+<!-- Container -->
+<div class="container">
+
+<!-- Main Content -->
+<div class="row">
+	<div class="span12">
+		<div class="row">
+    	<?php echo $this->layout()->content ?>	
+    	</div>
+  	</div>
+</div>	
+<!-- /Main Content -->
+
+</div>
+<!-- /Container -->
+
+<footer>
+	<?php echo $this->render('footer.phtml'); ?>
+</footer>
+
+<?php
+$this->headScript()->appendFile('/js/less-1.2.2.min');
+$this->headScript()->appendFile('/js/prettify.js');
+echo $this->headScript()->appendFile('/js/bootstrap.js');
+?>
+</body>
+
+</html>

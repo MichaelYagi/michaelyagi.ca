@@ -1,0 +1,19 @@
+<?php
+echo "<h4>User Login</h4>";
+
+if ($this->msg == 1) {
+	echo "<div class='notice success'><span class='notice success' data-icon='C'></span>Successful Registration. Please login.<a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if ($this->msg == 2) {
+	echo "<div class='notice success'><span class='notice success' data-icon='C'></span>Email sent.<a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if ($this->msg == 3) {
+	echo "<div class='notice success'><span class='notice success' data-icon='C'></span>Password reset, please login with new credentials.<a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if ($this->err == 1) {
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Incorrect username or password <a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if ($this->err == 2) {
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Error in submission <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+
+echo "<div id='CommentForm' class='CommentForm_new'>";
+echo $this->loginform;
+echo "<a style='float:right;margin-right:675px;margin-top:-30px;' href='".$this->baseUrl('food/register')."'><button>Register</button></a>";
+echo "</div>";

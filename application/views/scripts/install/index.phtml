@@ -1,0 +1,18 @@
+<h2>Installation</h2>
+<?php
+
+if($this->err==1)
+{
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Invalid Inputs <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+
+if(!$this->adapterSet)
+{
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Configure application.ini before proceeding!</div>";
+} else if (!$this->tablesSet) {
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Create database 'myagi' before proceeding!!</div>";
+
+} else {
+	//Create username/password for admin
+	echo $this->installform;
+}

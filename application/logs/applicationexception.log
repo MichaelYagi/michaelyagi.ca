@@ -1,0 +1,328 @@
+2016-02-21T01:53:46-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T01:53:46-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T01:55:10-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T01:55:10-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T01:55:26-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T01:55:26-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T01:57:24-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T01:57:24-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:06:13-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:06:13-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:07:10-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:07:11-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:13:58-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:13:58-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:23:31-05:00 DEBUG (7): Invalid controller specified (media)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:23:31-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:23:31-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:24:05-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:24:06-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:24:47-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:24:47-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:25:03-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:25:03-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:26:33-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:26:33-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:27:47-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-21T02:27:48-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-22T02:01:22-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-22T02:01:22-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-22T02:02:41-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-22T02:02:42-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-24T00:11:58-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-24T00:11:58-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-24T00:13:03-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-24T00:13:04-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-24T00:15:44-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-24T00:15:44-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-24T00:16:17-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-24T00:16:17-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-24T00:17:05-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+
+2016-02-24T00:17:05-05:00 DEBUG (7): Invalid controller specified (css)
+#0 /var/www/michaelyagi.ca/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 /var/www/michaelyagi.ca/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#2 /var/www/michaelyagi.ca/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#3 /var/www/michaelyagi.ca/public/index.php(26): Zend_Application->run()
+#4 {main}
+
+

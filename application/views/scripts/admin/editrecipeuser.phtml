@@ -1,0 +1,83 @@
+<script type="text/javascript" language="javascript">
+	
+	function deletechecked(message)
+	{
+		var answer = confirm("Delete post '" + message + "'?")
+		if (answer)
+    	{
+        	document.messages.submit();
+    	}
+    
+    	return false; 
+	}
+
+</script>
+
+<?php
+$objpage = $this->objpager;
+$paginator = $this->paginator;
+
+echo "<h3 style='display:inline;'>Welcome ".$this->user."</h3>&nbsp;&nbsp;<a style='float:right;' class='button' href='".$this->baseUrl('admin/logout')."'>Sign out</a>";
+echo "<p style='margin-top:0px; margin-bottom:25px;'>".$this->expiretime."</p>";
+echo "<h4>Edit Recipe Users</h4>";
+
+if ($this->err==1) {
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Choose an action <a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if ($this->err==2) {
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>An unknown error occurred <a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if ($this->err==3) {
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>No posts chosen <a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if($this->msg==1) {
+	echo "<div class='notice success'><span class='icon medium' data-icon='C'></span>Successful Edit <a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if($this->msg==2) {
+	echo "<div class='notice success'><span class='icon medium' data-icon='C'>C</span>Nothing has changed <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+
+echo $paginator;
+echo "<br><br>"; 
+echo "<div id='WrapperBox'>";
+?>
+	<form name="active" action="/admin/editrecipeuser" method="post">
+	<select name="action" class="fancy">
+		<option value="choose">-- Choose Action --</option>
+		<option value="0">Activate</option>
+		<option value="1">Suspend</option>
+	</select>
+	<input style="padding: 5px 6px 5px 2px;" type="submit" name="submit" value="Go" />
+
+	<table style="margin-top:-10px;" cellspacing="0" cellpadding="0">
+	<br><br>
+	<thead><tr>
+		<th>Action</th>
+		<th>User</th>
+		<th>Status</th>
+	</tr></thead>
+	<tbody>
+	
+		<?php 
+		foreach($objpage->getCurrentItems() as $value) {
+			echo "<tr><td><input type='checkbox' name='postaction[]' value='".$value['id']."' /></td>";
+						
+			echo "<td>".$value['username']."</td>";
+
+			if (!$value['suspended']) {
+				echo "<td><span class='icon small green' data-icon='C' title='Active'></span></td>";
+			} else {
+				echo "<td><span class='icon small red' data-icon='l' title='Suspended'></span></td>";
+			}
+			echo "</tr>";
+		}
+		?>
+	</tbody>
+	</table>
+	<?php
+	if (isset($_GET['page'])&&isset($_GET['count'])) {
+	?>
+		<input type="hidden" name="page" value="<?php echo $_GET['page']; ?>">
+		<input type="hidden" name="count" value="<?php echo $_GET['count']; ?>">
+	<?php
+	}
+	?>
+	</form>
+</div>
+<br><?php echo $paginator; ?>

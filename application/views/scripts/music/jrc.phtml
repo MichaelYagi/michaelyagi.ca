@@ -1,0 +1,48 @@
+<?php
+$tracks = $this->tracks;
+$langswitch = $this->langswitch;
+$language = $this->lang;
+$changeLang = 'en_CA';
+
+if ($language == 'en_CA')
+{
+	$changeLang = 'ja';
+}
+
+?>
+<a class="button pop" href="/music/jrc/lang/<?php echo $changeLang; ?>"><span class="icon" data-icon="9"></span> <?php echo $langswitch; ?></a>
+<h3><?php echo $this->heading_1; ?><br><?php echo $this->heading_2; ?></h3>
+
+<div id='CommentForm'>
+<p>
+Emil Azuma Prikryl - piano<br>
+Michael Fry - violin<br>
+Ryuko Kimura - piano<br>
+Michael Yagi - violin<br>
+</p>
+</div>
+<br>
+
+<table>
+<thead>
+<tr>
+<th>No.</th>
+<th>Title</th>
+<th>MP3</th>
+<th>Youtube</th>
+</tr>
+</thead>
+<tbody>
+<?php
+foreach($tracks as $key=>$value)
+{
+	echo "<tr>";
+	echo "<td>".$value['no']."</td>";
+	echo "<td>".$value['title']."</td>";
+	echo "<td><a href='".$value['mp3']."'><span class='icon gray small' data-icon='3'></span></a></td>";
+	echo "<td><a href='".$value['youtube']."'><span class='icon social gray small' data-icon='U'></span></a></td>";
+	echo "</tr>";
+}
+?>
+</tbody>
+</table>

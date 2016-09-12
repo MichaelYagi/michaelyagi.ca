@@ -1,0 +1,19 @@
+#footer-top 
+{
+	background-color: #F1F1F1;
+	margin-top: 15px;
+	padding: 15px 0 15px 0;
+}
+
+/*
+footer a
+{
+	color: #F7F7F9;
+}
+*/
+
+#footer-bottom
+{	
+	background-color: #E3E4E6;
+	padding: 15px 0 5px 0;
+}

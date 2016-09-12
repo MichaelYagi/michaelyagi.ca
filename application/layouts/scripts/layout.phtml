@@ -1,0 +1,180 @@
+<?php 
+echo $this->doctype();
+$controller = Zend_Controller_Front::getInstance()->getRequest()->getControllerName();
+$action = Zend_Controller_Front::getInstance()->getRequest()->getActionName();
+?>
+
+<html lang="en">
+
+<head>
+<?php
+
+if($controller=="admin")
+{
+	echo $this->headMeta()->appendHttpEquiv('Content-Type','text/html; charset=UTF-8')
+							->appendHttpEquiv('Content-Language','any')
+							->appendName('robots','nofollow');
+}
+else
+{
+	echo $this->headMeta()->appendHttpEquiv('Content-Type','text/html; charset=UTF-8')
+							->appendHttpEquiv('Content-Language','any');
+}
+$this->headTitle()->prepend('Michael Yagi');
+echo $this->headTitle();
+
+if($controller=="sitedown")
+{
+	$this->headLink()->appendStylesheet('/css/clockstyles.css');
+	$this->headLink()->appendStylesheet('/css/jquery.tzineClock.css');
+	echo '<style type="text/css">#wrap{background:#252525;}</style>';
+}
+else
+{
+	echo '<style type="text/css">#wrap{background:#FFF;}</style>';
+}
+$this->headLink()->appendStylesheet('/css/prettify.css');
+$this->headLink()->appendStylesheet('/css/jquery-ui.css');
+$this->headLink()->appendStylesheet('/css/kickstart.css');
+$this->headLink()->appendStylesheet('/css/tag-it.css');
+echo $this->headLink()->appendStylesheet('/css/style.css');
+
+$this->headScript()->appendFile('/js/jquery.min.js');
+$this->headScript()->appendFile('/js/jquery-ui.min.js');
+if($controller=="sitedown")
+{
+	$this->headScript()->appendFile('/js/jquery.tzineClock.js');
+	$this->headScript()->appendFile('/js/clockscript.js');
+}
+$this->headScript()->appendFile('/js/kickstart.js');
+$this->headScript()->appendFile('/js/tag-it.min.js');  
+$this->headScript()->appendFile('/js/custom.js');
+echo $this->headScript()->appendFile('/js/prettify.js');
+
+$siteOptions = new Application_Model_SiteOptions();
+$backgroundUrl = $siteOptions->getSiteBackground();
+if (!empty($backgroundUrl))
+{
+	echo '<style type="text/css">body{background:#efefef url('.$backgroundUrl->url.') repeat center top}</style>';
+}
+?>
+  
+</head>
+	
+<body>
+<a id="top-of-page"></a>
+
+<?php
+/*
+<!-- Banner -->
+<div id="header">
+<?php echo $this->render('banner.phtml'); ?>
+</div>
+<!-- /Banner -->
+*/
+?>
+	
+<div id="wrap" class="clearfix">
+		
+<!-- Menu Horizontal -->
+<div id="nav">
+<?php echo $this->render('header.phtml'); ?>
+</div>
+<!-- /Menu Horizontal -->
+	
+<!-- Single Column -->
+<div class="col_12">
+<?php
+if ($controller == "news"||($controller == "admin"&&$action != "login"))
+{
+?>	
+<!-- Left Column -->
+<div class="col_9">
+<?php echo $this->layout()->content ?>		
+</div>
+<!-- /Left Column -->
+		
+	<?php
+	if ($controller == "news")
+	{
+	?>
+	
+<!-- Right Column -->
+<div class="col_3">
+<?php 
+		$blog = new Application_Model_Blog();
+		$arrPosts = $blog->getBlogPosts();
+		$limit = 10;
+		$counter = 0;
+		echo "<h6>Recent Posts</h6><ul class='alt'>";
+
+		foreach($arrPosts as $value)
+		{
+			if ($counter == $limit)
+    		{
+    			break;
+    		}
+    		echo "<li><a href='".$this->baseUrl('/news/article/id/'.$value["id"])."'>".$value['title']."</a></li>";
+    		$counter++;
+		}
+
+		echo "</ul>";
+		?>
+</div>
+<!-- /Right Column -->
+<?php 
+	}
+	else if ($controller == "admin" && Zend_Auth::getInstance()->hasIdentity())
+	{
+	?>
+<!-- Right Column -->
+<div class="col_3">
+	<?php echo $this->render('adminmenu.phtml'); ?>
+</div>
+<!-- /Right Column -->
+<?php
+	}
+} else {
+?>
+<div class="col_12">
+<?php echo $this->layout()->content ?>		
+</div>
+<?php
+}
+?>
+
+<?php
+/*
+<hr />
+		
+<!-- Bottom Column -->
+<?php echo $this->render('bottomcolumn.phtml'); ?>
+<!-- /Bottom Column -->
+*/
+?>
+
+</div>
+<!-- /Single Column -->
+	
+<!-- Footer Content -->
+<?php echo $this->render('footer.phtml'); ?>
+<!-- /Footer Content -->
+</div>
+	
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29059127-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+
+</html>

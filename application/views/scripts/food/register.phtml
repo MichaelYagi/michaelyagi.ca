@@ -1,0 +1,14 @@
+<?php
+echo "<h4>User Registration</h4>";
+if ($this->err == 1)
+{
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Username or email already exists<a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+else if ($this->err == 2)
+{
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Error in submission <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+
+echo "<div id='CommentForm' class='CommentForm_new'>";
+echo $this->registerform;
+echo "</div>";

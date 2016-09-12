@@ -1,0 +1,148 @@
+<?php
+if (isset($_POST["uid"]) && isset($_POST["ustatus"]) && $_POST["uid"] && $_POST["ustatus"]) {
+	$uid = $_POST["uid"];
+	$status = $_POST["ustatus"];
+	$status = "suspend"?"1":"0";
+	$users = $this->user_model;
+	$setstatus = $users->setUserStatus($uid,$status);
+	echo $setstatus;
+	exit();
+} else if (isset($_POST["uid"]) && isset($_POST["password"]) && isset($_POST["user"]) && $_POST["uid"] && $_POST["password"] && $_POST["user"]) {
+	$uid = $_POST["uid"];
+	$password = $_POST["password"];
+	$user = $_POST["user"];
+	
+	$users = $this->user_model;
+	$email = $users->setUserHash($uid,$password);
+	
+	try {
+		$mail = new Zend_Mail();
+		$mail->setBodyText('Your email has been changed to: '.$password)
+			->setFrom('myagi.developer@gmail.com', 'Michael Yagi')
+			->addTo($email, $user)
+			->setSubject('API password changed')
+			->send();
+	} catch(Exception $e) {
+		//Do nothing for now
+	}
+	
+	$status = 0;
+	if (!empty($email)) {
+		$status = 1;
+	}
+	echo $status;
+	exit();
+}
+
+echo '<script type="text/javascript" language="javascript">';
+
+echo 'function setuserstatus(user_id,user_status) {';
+echo '$.post("'.$this->baseUrl('admin/users/').'",';
+echo '{uid:user_id,ustatus:user_status},';
+echo 'function(data,ret_status){';
+echo 'if (user_status == "suspend") { $("#status_" + user_id).attr("class","icon small red");$("#status_" + user_id).attr("data-icon","x");$("#status_" + user_id).attr("title","Suspended");$("#status_" + user_id).children("span").html("x"); }';
+echo 'else { $("#status_" + user_id).attr("class","icon small green");$("#status_" + user_id).attr("data-icon","C");$("#status_" + user_id).attr("title","Active");$("#status_" + user_id).children("span").html("C"); }';
+echo '});}';
+
+echo 'function resetpassword(user_id,user) {';
+echo 'var password = prompt("Please enter new password");';
+echo 'if (password != null) {';
+echo '$.post("'.$this->baseUrl('admin/users/').'",';
+echo '{uid:user_id,password:password,user:user},';
+echo 'function(data,ret_status){';
+echo '$("#change_message").html("");';
+echo '$("#change_message").html("Password changed");';
+echo '});}}';
+
+echo '</script>';
+
+$objpager = $this->objpager;
+$paginator = $this->paginator;
+
+echo "<h3 style='display:inline;'>Welcome ".$this->user."</h3>&nbsp;&nbsp;<a style='float:right;' class='button' href='".$this->baseUrl('admin/logout')."'>Sign out</a>";
+echo "<p style='margin-top:0px; margin-bottom:25px;'>".$this->expiretime."</p>";
+echo "<h4>User Options</h4>";
+if($this->msg==1)
+{
+	echo "<div class='notice success'><span class='icon medium' data-icon='C'></span>Successful Submission <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+else if($this->err==1)
+{
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Error in submission <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+
+$sortby = Zend_Controller_Front::getInstance()->getRequest()->getParam('view');
+$getSort = '';
+if ($sortby == "user") {
+	$getSort = 'view/user';
+	echo "Sort by: <a href='".$this->baseUrl('admin/users/view/status/')."'>Status</a> | User<br>";
+} else if ($sortby == "status") {
+	$getSort = 'view/status';
+	echo "Sort by: Status | <a href='".$this->baseUrl('admin/users/view/user/')."'>User</a><br>";
+} else {
+	echo "Sort by: <a href='".$this->baseUrl('admin/users/view/status/')."'>Status</a> | <a href='".$this->baseUrl('admin/users/view/user/')."'>User</a><br>";
+}
+
+echo $paginator;
+echo "<br><br>"; 
+echo "<div id='WrapperBox'>";
+?>
+	<form name="active" action="/admin/users" method="post">
+	<select name="action" class="fancy">
+		<option value="choose">-- Choose Action --</option>
+		<option value="1">Suspend</option>
+		<option value="2">Activate</option>
+	</select>
+	<input style="padding: 5px 6px 5px 2px;" type="submit" name="submit" value="Go" />
+
+	<table style="margin-top:-10px;" cellspacing="0" cellpadding="0">
+	<br><br>
+	<thead><tr>
+		<th>Action</th>
+		<th>User</th>
+		<th>Status</th>
+		<th></th>
+	</tr></thead>
+	<tbody>
+	
+		<?php 
+		
+		foreach($objpager->getCurrentItems() as $value) {
+			echo "<tr><td><input type='checkbox' name='useraction[]' value='".$value['id']."' /></td>";
+			$user = $value['username'];
+			if (strlen($value['username']) >= 60) {
+				$user = substr($value['username'], 0, 60)."...";
+			}
+			echo "<td>".$user."</td>";
+			echo "<td><a onclick='return resetpassword(\"".$value['id']."\",\"".$user."\")' href='javascript:void(0)' title='Reset Password'><span id='pass_".$value['id']."' class='icon small darkgray' data-icon='7' title='Reset Password'></span></a>";
+			if ($value['suspended']) {
+				echo "<a onclick='return setuserstatus(\"".$value['id']."\",\"active\")' href='javascript:void(0)' title='Edit User'><span id='status_".$value['id']."' class='icon small red' data-icon='x' title='Suspended'></span></a>";
+			} else {
+				echo "<a onclick='return setuserstatus(\"".$value['id']."\",\"suspend\")' href='javascript:void(0)' title='Edit User'><span id='status_".$value['id']."' class='icon small green' data-icon='C' title='Active'></span></a>";
+			}
+			echo "<td><div id='change_message'></div></td>";
+			echo "</td>";
+			echo "</tr>";
+		}
+		?>
+	</tbody>
+	</table>
+	<?php
+	if (isset($_GET['page'])&&isset($_GET['count']))
+	{
+	?>
+	<input type="hidden" name="page" value="<?php echo $_GET['page']; ?>">
+	<input type="hidden" name="count" value="<?php echo $_GET['count']; ?>">
+	<?php
+	}
+	$param = Zend_Controller_Front::getInstance()->getRequest()->getParam('view');
+	if (isset($param))
+	{
+	?>
+	<input type="hidden" name="view" value="<?php echo $param; ?>">
+	<?php
+	}
+	?>
+	</form>
+</div>
+<br><?php echo $paginator; ?>

@@ -1,0 +1,14 @@
+<?php
+$site = new Application_Model_SiteOptions;
+$sitestatus = $site->getSiteStatus();
+
+if(!$sitestatus['value'])
+{
+	$sitetitle = "#FF3300";
+}
+else
+{
+	$sitetitle = "#000";
+}
+?>
+<h1><a style="text-decoration:none;color:<?php echo $sitetitle;?>" href="<?php echo $this->baseUrl('/index'); ?>">Michael Yagi</a></h1>

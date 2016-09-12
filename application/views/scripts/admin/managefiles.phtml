@@ -1,0 +1,177 @@
+<script type="text/javascript" language="javascript">
+	
+	function deletechecked(checkbox)
+	{
+		var e = document.getElementById("actionDropdown");
+		var action = e.options[e.selectedIndex].value;
+			
+		if(action == 1)
+		{
+			var namelist = "";
+			
+			for(var i = 0; i < document.getElementsByName(checkbox).length; i++)
+			{
+				if(document.getElementsByName(checkbox)[i].checked) 
+				{
+					
+					namelist += document.getElementsByName(checkbox)[i].value + "\n";
+				}
+			}
+			
+			if(namelist == "") 
+			{
+				return false;
+			} else {
+				var answer = confirm('Delete the following files?\n' + namelist);
+				if (answer)
+    			{
+        			document.messages.submit();
+    			}
+    			else
+    			{
+    				return false;
+    			}
+			}
+			
+    	}
+    	else
+    	{
+    		return false;
+    	}
+    
+    	return false; 
+	}
+
+</script>
+
+<?php
+$objpage = $this->objpager;
+$paginator = $this->paginator;
+
+echo "<h3 style='display:inline;'>Welcome ".$this->user."</h3>&nbsp;&nbsp;<a style='float:right;' class='button' href='".$this->baseUrl('admin/logout')."'>Sign out</a>";
+echo "<p style='margin-top:0px; margin-bottom:25px;'>".$this->expiretime."</p>";
+echo "<h4>Manage Files</h4>";
+
+if (isset($this->fileMessages))
+{
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>".implode("\n", $this->fileMessages)."<a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+else if (isset($this->filename))
+{
+	echo "<div class='notice success'><span class='icon medium' data-icon='C'></span>File has been uploaded! <a href='".$this->baseUrl('media/'.$this->filename)."'>Click</a> to view. <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+if ($this->err==5)
+{
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Filename already exists <a href='#close' class='icon close' data-icon='x'></a></div>";
+} 
+if ($this->err==4)
+{
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>No file chosen <a href='#close' class='icon close' data-icon='x'></a></div>";
+} 
+if ($this->msg==3)
+{
+	echo "<div class='notice success'><span class='icon medium' data-icon='C'></span>File has been uploaded! <a href='#close' class='icon close' data-icon='x'></a></div>";
+} 
+
+?>
+<form name="upload" action="/admin/managefiles" enctype="multipart/form-data" method="post">
+<input type="file" name="datafile" />&nbsp;&nbsp;<input style="padding: 5px 6px 5px 2px;" type="submit" name="upload" value="Upload" />
+</form>
+<br>
+<?php
+
+if ($this->err==1)
+{
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Choose an action <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+else if ($this->err==2)
+{
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>An unknown error occurred <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+else if ($this->err==3)
+{
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>No files chosen <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+else if($this->msg==1)
+{
+	echo "<div class='notice success'><span class='icon medium' data-icon='C'></span>Successful Deletion <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+else if($this->msg==2)
+{
+	echo "<div class='notice success'><span class='icon medium' data-icon='C'>C</span>Nothing has changed <a href='#close' class='icon close' data-icon='x'></a></div>";
+} 
+
+$sortby = Zend_Controller_Front::getInstance()->getRequest()->getParam('view');
+$getSort = '';
+if ($sortby == "filesize")
+{
+	$getSort = 'view/filesize';
+	echo "Sort by: <a href='".$this->baseUrl('admin/managefiles/view/filename/')."'>Filename</a> | Filesize | <a href='".$this->baseUrl('admin/managefiles/view/extension/')."'>Extension</a><br>";
+}
+else if ($sortby == "filename")
+{
+	$getSort = 'view/filename';
+	echo "Sort by: Filename | <a href='".$this->baseUrl('admin/managefiles/view/filesize/')."'>Filesize</a> | <a href='".$this->baseUrl('admin/managefiles/view/extension/')."'>Extension</a><br>";
+}
+else if ($sortby == "extension")
+{
+	$getSort = 'view/extension';
+	echo "Sort by: <a href='".$this->baseUrl('admin/managefiles/view/filename/')."'>Filename</a> | <a href='".$this->baseUrl('admin/managefiles/view/filesize/')."'>Filesize</a> | Extension<br>";
+}
+else
+{
+	echo "Sort by: Filename | <a href='".$this->baseUrl('admin/managefiles/view/filesize/')."'>Filesize</a> | <a href='".$this->baseUrl('admin/managefiles/view/extension/')."'>Extension</a><br>";
+}
+
+echo $paginator;
+echo "<br><br>"; 
+echo "<div id='WrapperBox'>";
+?>
+	<form name="active" action="/admin/managefiles" method="post" onsubmit="return deletechecked('deletefileaction[]');">
+	<select name="action" id="actionDropdown" class="fancy">
+		<option value="choose">-- Choose Action --</option>
+		<option value="1">Delete</option>
+	</select>
+	<input style="padding: 5px 6px 5px 2px;" type="submit" name="submit" value="Go" />
+
+	<table style="margin-top:-10px;" cellspacing="0" cellpadding="0">
+	<br><br>
+	<thead><tr>
+		<th>Action</th>
+		<th>Filename</th>
+		<th>Filesize</th>
+		<th>Extension</th>
+	</tr></thead>
+	<tbody>
+	
+		<?php 
+		foreach($objpage->getCurrentItems() as $value)
+		{
+			echo "<tr><td><input type='checkbox' name='deletefileaction[]' value='".$value['filename']."' /></td>";
+			echo "<td><a href='".$this->baseUrl('media/'.$value['filename'])."'>".$value['filename']."</a></td>";
+			echo "<td>".$value['filesize']."</td>";
+			echo "<td>".$value['extension']."</td>";
+			echo "</tr>";
+		}
+		?>
+	</tbody>
+	</table>
+	<?php
+	if (isset($_GET['page'])&&isset($_GET['count']))
+	{
+	?>
+	<input type="hidden" name="page" value="<?php echo $_GET['page']; ?>">
+	<input type="hidden" name="count" value="<?php echo $_GET['count']; ?>">
+	<?php
+	}
+	$param = Zend_Controller_Front::getInstance()->getRequest()->getParam('view');
+	if (isset($param))
+	{
+	?>
+	<input type="hidden" name="view" value="<?php echo $param; ?>">
+	<?php
+	}
+	?>
+	</form>
+</div>
+<br><?php echo $paginator; ?>

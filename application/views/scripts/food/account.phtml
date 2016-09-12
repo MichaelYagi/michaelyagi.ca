@@ -1,0 +1,18 @@
+<?php
+echo "<h4>Account</h4>";
+
+if ($this->msg == 1) {
+	echo "<div class='notice success'><span class='notice success' data-icon='C'></span>Account Change Made.<a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if ($this->err == 1) {
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Error in submission<a href='#close' class='icon close' data-icon='x'></a></div>";
+} else if ($this->err == 2) {
+	echo "<div class='notice error'><span class='icon medium' data-icon='X'></span>Error in submission <a href='#close' class='icon close' data-icon='x'></a></div>";
+}
+
+echo "<div id='CommentForm' class='CommentForm_new'>";
+echo $this->emailaccountform;
+echo "</div>";
+
+echo "<div id='CommentForm' class='CommentForm_new'>";
+echo $this->passwordaccountform;
+echo "</div>";
